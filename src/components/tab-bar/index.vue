@@ -1,5 +1,4 @@
 <template>
-  
     <van-tabbar v-model="active" route active-color="#ff9854">
      <template v-for="(item, index) in  tabBarData" :key="index">
         <van-tabbar-item :to="item.path"  >
@@ -10,13 +9,7 @@
         </template>
       </van-tabbar-item>
      </template>
-    
-
-
     </van-tabbar>
-
-
-
 </template>
 
 <script setup>
@@ -25,21 +18,14 @@ import tabBarData from "@/assets/data/tab-bar.js"
 import { ref, computed, watch } from 'vue';
 const active = ref(0);
 const route=useRoute();
-
 //根据路由计算当前的activeIndex
-let  currentIndex=computed(()=>{
-  return route.path;
-})
-watch(currentIndex,(newvalue)=>{
-  console.log('路径发生变化了',newvalue);
-})
 watch(route,(newvalue)=>{
   //侦听路由，判断当前路由和active是否一致，一致不修改，不一致就修改，保持底部正确
   let index=tabBarData.findIndex(item=>item.path===newvalue.path)
   if(index!==active.value){
     active.value=index;
   }
-  // console.log('路由发生变化',newvalue.path,'index',index,'当前active',active.value);
+
 })
 
 </script>
