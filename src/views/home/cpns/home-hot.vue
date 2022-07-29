@@ -38,6 +38,7 @@ watch(isGoBack, ((page) => {
         if (res.finished) {
           finished.value = true;
         }
+        //更改是否达到底部状态为false
         isGoBack.value=false;
       });
     }
