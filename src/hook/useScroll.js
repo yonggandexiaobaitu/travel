@@ -9,7 +9,7 @@ export default function useScroll () {
     scrollHeight.value = document.documentElement.scrollHeight;//页面滚动的实际高度
     clientHeight.value = document.documentElement.clientHeight;//客户端高度
     scrollTop.value = document.documentElement.scrollTop;//滚上去的高度
-    console.log('开始滚动了',clientHeight.value,scrollTop.value,scrollHeight.value)
+    console.log('开始滚动了',clientHeight.value,scrollTop.value, scrollHeight.value )
     if(scrollTop.value+clientHeight.value>=scrollHeight.value){
       console.log('滚动到底部了');
       isGoBack.value=true;
