@@ -1,0 +1,16 @@
+/* 公共样式 */
+:root {
+  /* 全局主题色 */
+  --primary-color: #ff9854; 
+  --line-color: #faf8f9;
+  /* 全局修改: 任何地方只要用到-van-tabbar-item-icon-size都会被修改掉 */
+  /* --van-tabbar-item-icon-size: 30px !important; */
+}
+
+body {
+  font-size: 14px;
+}
+
+.bottom-gray-line {
+  border-bottom: 1px solid var(--line-color);
+}
