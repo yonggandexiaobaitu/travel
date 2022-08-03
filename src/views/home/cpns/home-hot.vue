@@ -4,8 +4,8 @@
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list v-model:loading="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
         <template v-for="item in hotHouseList">
-          <homeHotSelect1 :itemData="item.data" v-if="item.discoveryContentType === 3" />
-          <homeHotSelect2 :itemData="item.data" v-else="item.discoveryContentType === 9" />
+          <homeHotSelect1 :itemData="item.data" v-if="item.discoveryContentType === 3"  @click="Todetailpage(item.data)"/>
+          <homeHotSelect2 :itemData="item.data" v-else="item.discoveryContentType === 9"  @click="Todetailpage(item.data)"/>
         </template>
       </van-list>
     </van-pull-refresh>
@@ -15,9 +15,14 @@
 <script setup>
 import { storeToRefs } from "pinia"
 import { ref } from 'vue';
+import {useRouter} from "vue-router"
 import homeHotSelect1 from "./home-hot-select1.vue"
 import homeHotSelect2 from "./home-hot-select2.vue"
 import useHomeStore from "@/stores/modules/home.js"
+
+// 使用hook的路由
+const router=useRouter();
+
 //下拉刷新相关
 const homeStore = useHomeStore();
 const { hotHouseList } = storeToRefs(homeStore);
@@ -51,6 +56,17 @@ const onRefresh = () => {
   loading.value = true;
   onLoad();
 };
+
+
+// 跳转到detail页面
+const Todetailpage=(item)=>{
+  router.push({
+    name:'detail',
+    params:{
+      houseId:item.houseId
+    }
+  })
+}
 </script>
 
 <style lang="less" scoped>

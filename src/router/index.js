@@ -31,6 +31,11 @@ const routes = [
     meta:{
       hiddenTarBar:true
     }
+  },
+  {
+    name:'detail',
+    path:"/detail/:houseId",
+    component:()=>import('@/views/detail/index.vue'),
   }
 ];
 const router = createRouter({

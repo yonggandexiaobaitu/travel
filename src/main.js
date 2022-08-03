@@ -7,14 +7,13 @@ import "./assets/css/index.css"
 import pinia from "./stores"
 //引入路由
 import router from "./router"
-// 注册全局api
-import API from   "./service/modules/index";
+
 
 
 
 import App from './App.vue'
 const app=createApp(App);
-app.config.globalProperties.$api=API;
+
 app.use(pinia);
 app.use(router);
 app.mount('#app');

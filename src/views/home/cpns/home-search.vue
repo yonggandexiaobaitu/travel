@@ -65,7 +65,11 @@ const CityStore = useCityStore();
 const homeStore = useHomeStore();
 const { currentCityInfo,searchInfo } = storeToRefs(CityStore)
 const { hotSuggetsList,categoryList } = storeToRefs(homeStore)
-
+CityStore.getpostion().then((res)=>{
+  console.log('成功获取到经纬度了',res);
+},(err)=>{
+  console.log('报错了',err);
+})
 //初始化设置开始时间和结束时间
 CityStore.setSearchInfo();
 //获取首页分类房列表
